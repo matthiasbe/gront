@@ -22,6 +22,15 @@ myApp.controller('ConnexionCtrl',function($scope){
 	
 });
 
+myApp.controller('InscriptionCtrl',function($scope, $rootScope){
+	$scope.email = 'ooo';
+	$scope.register = function() {
+		$scope.email = 'bbb';
+		$rootScope.email = 'aaa';
+		//alert($scope.email);
+	}
+});
+
 myApp.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('home', {
 		url: '/home',
@@ -35,7 +44,8 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider.state('inscription', {
 		url: '/inscription',
-		templateUrl: 'templates/inscription.html'
+		templateUrl: 'templates/inscription.html',
+		controller: 'InscriptionCtrl'
 	});
 
 	$stateProvider.state('connexion', {
