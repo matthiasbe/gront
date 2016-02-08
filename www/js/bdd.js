@@ -1,19 +1,34 @@
-myApp.factory('bdd', function() {
-	// Using a factory to fetch requests from WordPress site using WP REST API
+myApp.factory('bdd', function($http) {
+	// Using a factory to fetch requests from WordPress site using WP REST AP
 
-	var header = {
-		// The string "user:password" might have to be encoded in base64
-		'Authorization' : 'Basic user:password'
+	var config = {
+		header : {
+			// The string "user:password" might have to be encoded in base64
+			'Authorization' : 'Basic ' + 'user:password'
+		}
+
 	};
 
 	// Base url of the wp endpoint
-	var url = "http://gront.fr/wp-json/wp/v2/";
+	// Here we use a proxy to test on localhost with ionic serve
+	var url = '/rest-api/';
 
+	// Patterns for requests
+	function reqGet(name) {
+		$http.get(url + name)
+			.then(function successCallback(response) {
+					return response;
+				},
+				function errorCallback(response) {
+					//TODO properly handle request errors
+					alert("Request failed.");
+					return null;
+				});
+	}
 
 	return {
 		simpleReq: function () {
-		    alert("ok");
-			return true;
+			return reqGet('users/5');
 		}
 	}
 });
