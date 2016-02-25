@@ -1,4 +1,8 @@
 {
-  "name": "testBD",
-  "app_id": ""
+    "name": "testBD",
+    "app_id": "",
+    "proxies": [{
+        "path": "/rest-api",
+        "proxyUrl": "http://gront.fr/wp-json/wp/v2"
+    }]
 }

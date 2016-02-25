@@ -1,10 +1,10 @@
-myApp.factory('bdd', function($http) {
+myApp.factory('bdd', function($http, $q) {
 	// Using a factory to fetch requests from WordPress site using WP REST AP
 
 	var config = {
 		header : {
 			// The string "user:password" might have to be encoded in base64
-			'Authorization' : 'Basic ' + 'user:password'
+			'Authorization' : 'Basic ' + 'appmobile:Jc29JQi^5jtq@@yT($0)4e#('
 		}
 
 	};
@@ -14,21 +14,27 @@ myApp.factory('bdd', function($http) {
 	var url = '/rest-api/';
 
 	// Patterns for requests
-	function reqGet(name) {
-		$http.get(url + name)
+	function reqGet(urlAdd) {
+    res = $q.defer();
+		$http.get(url + urlAdd)
 			.then(function successCallback(response) {
-					return response;
+          res.resolve(response);
 				},
 				function errorCallback(response) {
 					//TODO properly handle request errors
 					alert("Request failed.");
-					return null;
+          res.resolve(response);
 				});
+
+    return res.promise;
 	}
 
 	return {
-		simpleReq: function () {
-			return reqGet('users/5');
-		}
+		getUsers: function () {
+			return reqGet('users');
+		},
+    getUser: function(email) {
+      return reqGet('users/'+email);
+    }
 	}
 });
