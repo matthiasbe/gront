@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var myApp = angular.module('starter', ['ionic']);
+var grontApp = angular.module('starter', ['ionic']);
 
-myApp.run(function ($ionicPlatform) {
+grontApp.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,11 +18,11 @@ myApp.run(function ($ionicPlatform) {
   });
 });
 
-myApp.controller('ConnexionCtrl', function ($scope) {
+grontApp.controller('ConnexionCtrl', function ($scope) {
 
 });
 
-myApp.controller('InscriptionCtrl', function ($scope, $rootScope, bdd) {
+grontApp.controller('InscriptionCtrl', function ($scope, $rootScope, bdd) {
 
   // Subscribing of a user
   $scope.register = function () {
@@ -41,7 +41,7 @@ myApp.controller('InscriptionCtrl', function ($scope, $rootScope, bdd) {
   }
 });
 
-myApp.config(function ($stateProvider, $urlRouterProvider) {
+grontApp.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
     url: '/home',
     templateUrl: 'templates/home.html'

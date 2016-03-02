@@ -1,4 +1,4 @@
-myApp.factory('bdd', function($http, $q) {
+grontApp.factory('bdd', function($http, $q) {
 	// Using a factory to fetch requests from WordPress site using WP REST AP
 
 	var config = {
