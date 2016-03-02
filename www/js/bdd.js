@@ -14,8 +14,8 @@ myApp.factory('bdd', function($http, $q) {
 	var url = '/rest-api/';
 
 	// Patterns for requests
-	function reqGet(urlAdd) {
-    res = $q.defer();
+	function getRequest(urlAdd) {
+    var res = $q.defer();
 		$http.get(url + urlAdd)
 			.then(function successCallback(response) {
           res.resolve(response);
@@ -30,11 +30,38 @@ myApp.factory('bdd', function($http, $q) {
 	}
 
 	return {
-		getUsers: function () {
-			return reqGet('users');
+		/**
+     * @returns The list of registered users in the WordPress database in JSON format.
+     */
+    getUsers: function () {
+      return getRequest('users').then(function(users) {
+        return users['data'];
+      });
 		},
+
+		/**
+     * @param email The email address of the user we one want to return.
+     * @returns A user from the WordPress database in JSON format.
+     */
     getUser: function(email) {
-      return reqGet('users/'+email);
+      return this.getUsers().then(function(users) {
+        console.log(users);
+        for(var i = 0; i < users.length; i++) {
+          if(users[i].email == email) {
+            alert(JSON.stringify(users[i]));
+            return users[i];
+          }
+        }
+        return null;
+      });
+
+    },
+
+    userExists: function(email) {
+      return this.getUser(email).then(function(user) {
+        return user != null;
+      });
     }
+
 	}
 });
