@@ -64,5 +64,11 @@ grontApp.config(function ($stateProvider, $urlRouterProvider) {
     controller: 'ConnexionCtrl'
   });
 
+  $stateProvider.state('store', {
+    url: '/store',
+    templateUrl: 'templates/store.html',
+    controller: 'StoreCtrl'
+  });
+
   $urlRouterProvider.otherwise('/home');
 });
