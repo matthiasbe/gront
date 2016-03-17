@@ -1,5 +1,21 @@
 <ion-view view-title="Boutique">
-  <ion-item repeat="product in products">
-    <p>{{product.name}}</p>
-  </ion-item>
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        Products :
+      </div>
+      <div class="item item-text-wrap">
+        <p>{{products}}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item item-divider">
+        Users :
+      </div>
+      <div class="item item-text-wrap">
+        <p>{{users}}</p>
+      </div>
+    </div>
+  </ion-content>
 </ion-view>

@@ -3,9 +3,10 @@
 var url = '/rest-api/wp-json/wp/v2/';
 
 var wc = new WooCommerceAPI({
-  url: 'http://localhost:8100/rest-api/',
   consumerKey: 'ck_aabd0e6985206e1ea8945e6d1f203bd6f88bd52c',
-  consumerSecret: 'cs_c69ef1e13e5165daf06a717d5735665c230aa2fc'
+  consumerSecret: 'cs_c69ef1e13e5165daf06a717d5735665c230aa2fc',
+  url: 'http://localhost:8100/rest-api/',
+  proxy: 'http://gront.fr/wc-api/v3/products'
 });
 
 var wp = new WP({
@@ -18,10 +19,22 @@ grontApp.factory('bdd', function($http, $q) {
 	// Using a factory to fetch requests from WordPress site using WP REST API
 
 	return {
-    getProducts: function() {
-      wp.users().me().then(function(result) {
-        console.log(result);
+    getUsers: function() {
+      var res = $q.defer();
+      wp.users().then(function(result) {
+        res.resolve(result);
+      }, function(err) {
+        res.resolve(null);
       });
+      return res.promise;
+    },
+
+    getProducts: function() {
+      var res = $q.defer();
+      wc.get('products', function(err, data, result) {
+        res.resolve("err : " + err + " # data : " + data + " # result : " + result);
+      });
+      return res.promise;
     }
 	}
 });
