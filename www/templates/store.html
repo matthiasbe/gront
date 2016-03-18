@@ -5,16 +5,11 @@
         Products :
       </div>
       <div class="item item-text-wrap">
-        <p>{{products}}</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="item item-divider">
-        Users :
-      </div>
-      <div class="item item-text-wrap">
-        <p>{{users}}</p>
+        <ion-list>
+          <ion-item ng-repeat="product in products">
+            <p>{{product.title}}</p>
+          </ion-item>
+        </ion-list>
       </div>
     </div>
   </ion-content>

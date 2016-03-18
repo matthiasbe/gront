@@ -6,7 +6,7 @@ var wc = new WooCommerceAPI({
   consumerKey: 'ck_aabd0e6985206e1ea8945e6d1f203bd6f88bd52c',
   consumerSecret: 'cs_c69ef1e13e5165daf06a717d5735665c230aa2fc',
   url: 'http://localhost:8100/rest-api/',
-  proxy: 'http://gront.fr/wc-api/v3/products'
+  proxy: 'http://gront.fr/'
 });
 
 var wp = new WP({
@@ -32,7 +32,7 @@ grontApp.factory('bdd', function($http, $q) {
     getProducts: function() {
       var res = $q.defer();
       wc.get('products', function(err, data, result) {
-        res.resolve("err : " + err + " # data : " + data + " # result : " + result);
+        res.resolve(JSON.parse(result).products);
       });
       return res.promise;
     }
