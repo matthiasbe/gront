@@ -29,7 +29,12 @@
   "bugs": {
     "url": "https://github.com/matthiasbe/gront/issues"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    {
+      "locator": "https://github.com/apache/cordova-plugin-whitelist.git",
+      "id": "cordova-plugin-whitelist"
+    }
+  ],
   "cordovaPlatforms": [
     "android"
   ]
