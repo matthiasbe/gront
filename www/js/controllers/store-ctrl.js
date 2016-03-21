@@ -40,8 +40,8 @@ grontApp.controller('StoreCtrl', function ($scope, bdd, $ionicLoading, $ionicPop
     template: 'Chargement de la boutique...'
   });
 
-  var orderProduct = function(productId) {
-    cart.addProduct(productId);
+  var orderProduct = function(product) {
+    cart.addProduct(product);
     $ionicPopup.show(addedToCartPopup);
   };
 

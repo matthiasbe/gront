@@ -9,14 +9,14 @@ grontApp.factory('cart', function() {
       return products;
     },
 
-    addProduct: function (productId) {
+    addProduct: function (product) {
       //TODO already in cart
-      products.push(productId);
+      products.push(product);
     },
 
-    removeProduct: function(productId) {
+    removeProduct: function(product) {
       //TODO inexistant product
-      var index = products.indexOf(productId);
+      var index = products.indexOf(product);
       products.slice(index, 1);
     }
   }

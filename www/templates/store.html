@@ -2,14 +2,14 @@
   <ion-content>
     <div class="card">
       <div class="item item-divider">
-        Products :
+        Produits :
       </div>
       <div class="item item-text-wrap">
         <ion-list>
           <ion-item ng-repeat="product in products">
             <p>
               {{product.title}}
-              <button on-tap="orderProduct({{product.id}})" class="button icon ion-android-cart"></button>
+              <button on-tap="orderProduct({{product}})" class="button icon ion-android-cart"></button>
             </p>
           </ion-item>
         </ion-list>
