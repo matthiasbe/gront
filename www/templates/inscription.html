@@ -1,17 +1,19 @@
 <ion-view view-title="Inscription">
 
 	<ion-content padding="true">
-		<div class="list">
-			<label class="item item-input item-stacked-label">
-				<span class="input-label">First Name</span>
-				<input type="text" placeholder="John" ng-model="firstName"></label>
-			<label class="item item-input item-stacked-label">
-				<span class="input-label">Last Name</span>
-				<input type="text" placeholder="Suhr" ng-model="lastName"></label>
-			<label class="item item-input item-stacked-label">
-				<span class="input-label">Email</span>
-				<input type="text" placeholder="john@suhr.com" ng-model="email"></label>
-			<button class="button button-block button-balanced" ng-click="register(email)">S'inscrire</button>
-		</div>
+    <form name="registerForm">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="John" name="firstName"></label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="Suhr" ng-model="lastName"></label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="john@suhr.com" ng-model="email"></label>
+        <button class="button button-block button-balanced" on-tap="register(email)">S'inscrire</button>
+      </div>
+    </form>
 	</ion-content>
 </ion-view>
