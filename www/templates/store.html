@@ -7,7 +7,10 @@
       <div class="item item-text-wrap">
         <ion-list>
           <ion-item ng-repeat="product in products">
-            <p>{{product.title}}</p>
+            <p>
+              {{product.title}}
+              <button on-tap="orderProduct({{product.id}})" class="button icon ion-android-cart"></button>
+            </p>
           </ion-item>
         </ion-list>
       </div>

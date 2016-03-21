@@ -70,5 +70,15 @@ grontApp.config(function ($stateProvider, $urlRouterProvider) {
     controller: 'StoreCtrl'
   });
 
+  $stateProvider.state('cyclo', {
+    url: '/cyclo',
+    templateUrl: 'templates/cyclo.html',
+  });
+
+  $stateProvider.state('cart', {
+    url: '/cart',
+    templateUrl: 'templates/cart.html',
+  });
+
   $urlRouterProvider.otherwise('/home');
 });

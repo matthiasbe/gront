@@ -1,4 +1,4 @@
-grontApp.controller('StoreCtrl', function ($scope, bdd, $ionicLoading, $ionicPopup) {
+grontApp.controller('StoreCtrl', function ($scope, bdd, $ionicLoading, $ionicPopup, cart, $state) {
 
   var loadProducts = function () {
     bdd.getProducts().then(function (res) {
@@ -13,7 +13,7 @@ grontApp.controller('StoreCtrl', function ($scope, bdd, $ionicLoading, $ionicPop
   var connectionErrorPopup = function (error) {
     return {
       title: 'Erreur de connexion',
-        template: error,
+      template: error,
       scope: $scope,
       buttons: [
         {text: 'Annuler'},
@@ -26,10 +26,26 @@ grontApp.controller('StoreCtrl', function ($scope, bdd, $ionicLoading, $ionicPop
     }
   };
 
+  var addedToCartPopup = {
+    title: 'Panier',
+    template: 'Le produit à bien été ajouté au panier.',
+    buttons: [
+      //{text: 'Accéder au panier', type: 'button-positive', onTap: function() {$state.go('cart')}},
+      {text: 'Valider la commande', type: 'button-positive', onTap: function() {$state.go('cyclo')}},
+      {text: 'Ok'}
+    ]
+  };
+
   $ionicLoading.show({
     template: 'Chargement de la boutique...'
   });
 
+  var orderProduct = function(productId) {
+    cart.addProduct(productId);
+    $ionicPopup.show(addedToCartPopup);
+  };
+
+  $scope.orderProduct = orderProduct;
   loadProducts();
 });
 

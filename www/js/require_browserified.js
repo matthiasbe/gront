@@ -6933,7 +6933,6 @@ OAuth.prototype.authorize = function(request, token) {
  * @return {String} Signature
  */
 OAuth.prototype.getSignature = function(request, token_secret, oauth_data) {
-    console.log(this.getBaseString(request, oauth_data));
     return this.hash(this.getBaseString(request, oauth_data), this.getSigningKey(token_secret));
 };
 
