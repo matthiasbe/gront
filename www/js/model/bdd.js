@@ -34,7 +34,18 @@ grontApp.factory('bdd', function($http, $q) {
     },
 
     createCustomer: function(email) {
-      
+      var data = {"customer": {"email": email}};
+      var res = $q.defer();
+
+      wc.post('customers', data, function(err, data, results) {
+        if(err == null) {
+          res.resolve({err: false, loggedUser: JSON.parse(results).customer});
+        } else {
+          res.resolve({err: err, loggedUser: null});
+        }
+      });
+
+      return res.promise;
     },
 
     getProducts: function() {

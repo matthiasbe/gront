@@ -14,6 +14,10 @@ grontApp.controller('InscriptionCtrl', function ($scope, bdd) {
   }
 
   var createUser = function(email) {
-    bdd.createCustomer(email);
+    bdd.createCustomer(email).then(function (res) {
+      if(res.err == false) {
+        alert(res.loggedUser);
+      }
+    });
   }
 });
