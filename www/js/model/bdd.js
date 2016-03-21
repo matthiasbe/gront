@@ -46,7 +46,7 @@ grontApp.factory('bdd', function($http, $q) {
           user.resolve({userExists: false, user: null});
         }
       });
-      return available.promise;
+      return user.promise;
     },
 
     createCustomer: function(email) {
