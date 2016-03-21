@@ -16,7 +16,7 @@ grontApp.controller('InscriptionCtrl', function ($scope, bdd, user, $state) {
     }, function () {
       alert('Vous n\'êtes pas connecté à internet');
     });
-  }
+  };
 
   var createUser = function(email) {
     bdd.createCustomer(email).then(function (res) {

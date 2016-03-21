@@ -33,6 +33,22 @@ grontApp.factory('bdd', function($http, $q) {
       return available.promise;
     },
 
+    getUser: function(email) {
+      var user = $q.defer();
+      wc.get('customers/email/'+email, function(err, data, results) {
+        if(err != null) {
+          user.reject();
+        }
+        else if(data.statusCode == 200) {
+          user.resolve({userExists: true, user: JSON.parse(results).customer});
+        }
+        else if(data.statusCode == 404) {
+          user.resolve({userExists: false, user: null});
+        }
+      });
+      return available.promise;
+    },
+
     createCustomer: function(email) {
       var data = {"customer": {"email": email}};
       var res = $q.defer();

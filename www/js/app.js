@@ -18,10 +18,6 @@ grontApp.run(function ($ionicPlatform) {
   });
 });
 
-grontApp.controller('ConnexionCtrl', function ($scope) {
-
-});
-
 grontApp.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
     url: '/home',
@@ -42,7 +38,7 @@ grontApp.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('connexion', {
     url: '/connexion',
     templateUrl: 'templates/connexion.html',
-    controller: 'ConnexionCtrl'
+    controller: 'ConnectCtrl'
   });
 
   $stateProvider.state('store', {

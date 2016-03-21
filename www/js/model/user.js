@@ -2,19 +2,25 @@
  * Contains the logged user
  */
 grontApp.factory('user', function() {
-  var user = null;
+  var someoneIsLogged = false;
+  var user;
 
   return {
     isLogged: function(){
-      return user == null;
+      return someoneIsLogged;
     },
 
     setLoggedUser: function(user) {
+      someoneIsLogged = true;
       user = user;
     },
 
     getLoggedUser: function () {
       return user;
+    },
+
+    disconnect: function() {
+      someoneIsLogged = false;
     }
   }
 });

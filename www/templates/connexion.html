@@ -2,13 +2,12 @@
 	<ion-content padding="true">
 		<div class="list">
 			<label class="item item-input item-stacked-label">
-				<span class="input-label">First Name</span>
-				<input type="text" placeholder="John" ng-model='firstName'></label>
+				<span class="input-label">Email</span>
+				<input type="text" placeholder="exemple@domaine.fr" ng-model='email'></label>
 			<label class="item item-input item-stacked-label">
-				<span class="input-label">Last Name</span>
-				<input type="text" placeholder="Suhr" ng-model='lastName'></label>
-			<button class="button button-block button-balanced">Se connecter</button>
+				<span class="input-label">Mot de passe</span>
+				<input type="password" placeholder="azerty" ng-model='password'></label>
+			<button class="button button-block button-balanced" on-tap="connect(email, password)">Se connecter</button>
 		</div>
-		<h3>{{firstName}}</h3>
 	</ion-content>
 </ion-view>
