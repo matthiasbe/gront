@@ -20,3 +20,93 @@
   position: absolute;
   top: 120px;
 }
+
+.textHome
+{
+  margin: auto;
+  text-align: center;
+  position: relative;
+  color: white;
+  font-size: 130%;
+}
+
+
+
+.closeHome
+{
+  color: white;
+  position: absolute;
+  right: 3%;
+  font-size: 150%;
+}
+
+.logoGrontHome
+{
+  padding-top: 4%;
+  height: 130px;
+  margin: auto;
+}
+
+.Home
+{
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: red;
+}
+
+.divFoodtrucks
+{
+  position: relative;
+}
+
+.textFoodtrucks
+{
+  margin: 0px;
+  position: absolute;
+  color: white;
+  font-size: 90%;
+  top: 40%;
+  bottom: 20%:;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.legendFoodtrucks
+{
+  margin: 0px;
+  position: absolute;
+  color: white;
+  font-size: 80%;
+  top: 60%;
+  bottom: 20%:;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+}
+
+.imgFoodtrucks
+{
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  height: 81px;
+  margin: auto;
+}
+
+.imgVelo
+{
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  height: 75px;
+  margin: auto;
+}
+
+.rowHome
+{
+  margin-top: 50px;
+}
