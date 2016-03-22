@@ -1,8 +1,17 @@
-grontApp.controller('ConnectCtrl', function ($scope, $state, bdd, user) {
+grontApp.controller('ConnectCtrl', function ($scope, $state, bdd, user, $ionicPopup) {
   $scope.connect = function(email, password) {
     if(user.isLogged()) {
-      alert('Vous êtes déjà connecté.');
+
+      $ionicPopup.show({
+        title: "Déjà connecté",
+        template: 'Veuillez d\'abord vous déconnecter.',
+        buttons: [
+          {text: "Annuler"},
+          {text: "Se déconnecter", type: "button-positive", onTap: function(){user.disconnect();}}]
+      });
+
     } else {
+
       bdd.getUser(email).then(function(res) {
         if(res.userExists) {
           user.setLoggedUser(res.user);
@@ -15,6 +24,7 @@ grontApp.controller('ConnectCtrl', function ($scope, $state, bdd, user) {
       }, function(err) {
         alert('Vous n\'êtes pas connecté à internet.');
       });
+
     }
   };
 });
