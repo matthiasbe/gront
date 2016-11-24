@@ -1,3 +1,10 @@
+/**
+ * Page de connexion
+ *
+ * Fonctionnement de la connexion à partir d'identifiants du site wordpress :
+ *
+ */
+
 grontApp.controller('ConnectCtrl', function ($scope, $state, bdd, user, $ionicPopup) {
   $scope.connect = function(email, password) {
     if(user.isLogged()) {
@@ -12,15 +19,18 @@ grontApp.controller('ConnectCtrl', function ($scope, $state, bdd, user, $ionicPo
 
     } else {
 
-      bdd.getUser(email).then(function(res) {
-        if(res.userExists) {
-          user.setLoggedUser(res.user);
-          alert('Vous êtes connecté');
-          $state.go('store');
-        }
-        else {
-          alert('L\'adresse email n\'existe pas.');
-        }
+      bdd.checkPassword(email, password).then(function(res) {
+          if(!res.err) {
+              if(res.data.status == 0) {
+                console.log("Authorized to connect");
+              }
+              else if(res.data.status == 2) {
+                  console.error("Unauthorize to connect");
+              }
+              else {
+                  console.error("Internal server error");
+              }
+          }
       }, function(err) {
         alert('Vous n\'êtes pas connecté à internet.');
       });

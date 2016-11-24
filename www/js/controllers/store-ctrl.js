@@ -29,7 +29,6 @@ grontApp.controller('StoreCtrl', function ($scope, bdd, $ionicLoading, $ionicPop
     title: 'Panier',
     template: 'Le produit à bien été ajouté au panier.',
     buttons: [
-      //{text: 'Accéder au panier', type: 'button-positive', onTap: function() {$state.go('cart')}},
       {text: 'Valider la commande', type: 'button-positive', onTap: function() {$state.go('cyclo')}},
       {text: 'Ok'}
     ]

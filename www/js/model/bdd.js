@@ -1,10 +1,12 @@
 grontApp.factory('bdd', function($http, $q) {
-  var wp = new WP({
-    endpoint: 'http://localhost:8100/rest-api/wp-json/',
+  var wp = new WPAPI({
+    endpoint: 'http://localhost//gront/?rest_route=',
     //endpoint: 'http://gront.fr/wp-json/',
     username : 'appmobile',
     password : 'Jc29JQi^5jtq@@yT($0)4e#('
   });
+  wp.check = wp.registerRoute('custom', '/check/(?P<id>)/(?P<password>)');
+
 
 	// Using a factory to fetch requests from WordPress site using WP and WC REST APIs
   var wc = new WooCommerceAPI({
@@ -15,39 +17,7 @@ grontApp.factory('bdd', function($http, $q) {
     proxy: 'http://gront.fr/'
   });
 
-	return {
-
-    emailAvailable: function(email) {
-      var available = $q.defer();
-      wc.get('customers/email/'+email, function(err, data, results) {
-        if(err != null) {
-          available.reject();
-        }
-        else if(data.statusCode == 200) {
-          available.resolve(false);
-        }
-        else if(data.statusCode == 404) {
-          available.resolve(true);
-        }
-      });
-      return available.promise;
-    },
-
-    getUser: function(email) {
-      var user = $q.defer();
-      wc.get('customers/email/'+email, function(err, data, results) {
-        if(err != null) {
-          user.reject();
-        }
-        else if(data.statusCode == 200) {
-          user.resolve({userExists: true, user: JSON.parse(results).customer});
-        }
-        else if(data.statusCode == 404) {
-          user.resolve({userExists: false, user: null});
-        }
-      });
-      return user.promise;
-    },
+  return {
 
     createCustomer: function(email) {
       var data = {"customer": {"email": email}};
@@ -75,6 +45,44 @@ grontApp.factory('bdd', function($http, $q) {
         }
       });
       return res.promise;
+    },
+
+    checkPassword: function(email, password) {
+      var res = $q.defer();
+      wp.check()
+          .id(encodeURI(email))
+          .password(encodeURIComponent(password))
+          .get(function(err, data) {
+            if(err == null) {
+                res.resolve({data: data, err: false});
+            }
+            else {
+                res.resolve({data: [], err: 'Aucune connexion.'});
+            }
+        });
+      return res.promise;
     }
-	}
+  }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
