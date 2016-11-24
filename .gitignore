@@ -8,3 +8,7 @@ plugins/
 # Project files for IDE
 .idea
 .netbeans
+
+# temporary files
+*.swp
+
