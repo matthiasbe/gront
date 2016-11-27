@@ -1,17 +1,18 @@
-grontApp.controller('StoreCtrl', function ($scope, bdd, $ionicLoading, $ionicPopup, cart, $state) {
+grontApp.controller('StoreCtrl', function ($scope, bdd, data, $ionicLoading, $ionicPopup, cart, $state) {
+
+  /**
+   * When store page is loaded
+   */
+  var initStore = function() {
+    alert('ok');
+  }
 
 	/**
    * Loads the products from WP and fills the bounded
    * variable $scope.products with the products in an array.
    */
   var loadProducts = function () {
-    bdd.getProducts().then(function (res) {
-      $scope.products = res.data;
-      if(res.err) {
-        $ionicPopup.show(connectionErrorPopup(res.err));
-      }
-      $ionicLoading.hide();
-    });
+    $scope.products = data.getProducts();
   };
 
   /***  Popups  ***/
@@ -34,16 +35,14 @@ grontApp.controller('StoreCtrl', function ($scope, bdd, $ionicLoading, $ionicPop
     ]
   };
 
-  /*** Execution ***/
-
-  $ionicLoading.show({
-    template: 'Chargement de la boutique...'
-  });
-
   var orderProduct = function(product) {
     cart.addProduct(product);
     $ionicPopup.show(addedToCartPopup);
   };
+
+
+  /*** Execution ***/
+  data.sync();
 
   $scope.orderProduct = orderProduct;
   loadProducts();
