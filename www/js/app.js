@@ -21,7 +21,7 @@ grontApp.run(function ($ionicPlatform) {
 grontApp.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
     url: '/home',
-    templateUrl: 'templates/home.html'
+    templateUrl: 'templates/first-page.html'
   });
 
   $stateProvider.state('page1', {
