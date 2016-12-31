@@ -1,20 +1,22 @@
-<ion-view view-title="Inscription">
+<ion-view view-title="Home" hide-nav-bar="true" class="Home">
 
-	<ion-content padding="true">
-    <form name="registerForm">
-      <p>Ici il faudrait préciser que des id/mdp auto-générés seront envoyés par mail</p>
-      <div class="list">
-        <!--<label class="item item-input item-stacked-label">
-          <span class="input-label">First Name</span>
-          <input type="text" placeholder="John" name="firstName"></label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Last Name</span>
-          <input type="text" placeholder="Suhr" ng-model="lastName"></label>-->
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Email</span>
-          <input type="text" placeholder="john@suhr.com" ng-model="email"></label>
-        <button class="button button-block button-balanced" on-tap="register(email)">S'inscrire</button>
-      </div>
-    </form>
-	</ion-content>
+	<!--Logo Gront-->
+	<div class="row">
+		<img src="img/logo.gif" class="logoGrontHome">
+	</div>
+
+	<div class="rowHome">
+		<img src="img/perso/6-rect.gif" class="imgConnect" style="margin-bottom: 15%;">
+		<p class="textInRect21">Nom prénom</p>
+		<p class="textInRect23">Email</p>
+		<p class="textInRect25">Carte</p>
+	</div>
+
+	<div class="rowHome" style="width: 20%; margin-right: 10%;">
+	<div style="margin-right: 0%;">
+		<img src="img/perso/ok-rect.gif" class="imgConnect">
+		<p class="textInRect4">ok</p>
+	</div>
+	</div>
+
 </ion-view>

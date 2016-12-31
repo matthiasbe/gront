@@ -21,18 +21,18 @@ grontApp.run(function ($ionicPlatform) {
 grontApp.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
     url: '/home',
-    templateUrl: 'templates/page1.html'
-  });
-
-  $stateProvider.state('page1', {
-    url: '/page1',
-    templateUrl: 'templates/page1.html'
+    templateUrl: 'templates/home.html'
   });
 
   $stateProvider.state('inscription', {
     url: '/inscription',
     templateUrl: 'templates/inscription.html',
     controller: 'InscriptionCtrl'
+  });
+
+  $stateProvider.state('main', {
+    url: '/main',
+    templateUrl: 'templates/main.html'
   });
 
   $stateProvider.state('connexion', {
