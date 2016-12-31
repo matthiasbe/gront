@@ -1,6 +1,61 @@
-<ion-view view-title="page1">
+<ion-view view-title="Home" hide-nav-bar="true" class="Home">
 
-<ion-content>
-<h1>NON</h1>
-</ion-content>
+	<!--Logo Gront-->
+	<div class="row">
+		<img src="img/logo.gif" class="logoGrontHome">
+	</div>
+
+	<!--Phrase 1-->
+	<div class="rowHome" style="margin-top: 5%">
+		<p class="textHome">Connectez vous:</p>
+	</div>
+
+	<div class="rowHome" ui-sref="connexion">
+		<img src="img/perso/2-rect+bar.gif" class="imgConnect">
+		<p class="textInRect1">Identifiant</p>
+		<p class="textInRect2">Mot de passe</p>
+		<p class="textInRect3">Ok</p>
+	</div>
+
+	<!--Phrase 1-->
+	<div class="rowHome" style="margin-top: 5%">
+		<p class="textHome">Pas encore de compte ?</p>
+	</div>
+
+	<div class="rowHome" ui-sref="connexion">
+		<img src="img/perso/1-rect.gif" class="imgConnect">
+		<p class="textInRect4">Créer son compte</p>
+	</div>
+
+	<!--Solution 1-->
+	<!--<div class="row rowHome" style="margin-top: 5%">
+			<p class="textHome">A venir récupérer dans nos points de livraison du jour (avant 10h pour le jour même)</p>
+	</div>-->
+
+	<!--Solution 2-->
+	<!--<div class="row divFoodtrucks rowHome" style="margin-top: 5%">
+		<img src="img/velo.gif" class="imgVelo">
+		<p class="textHome textFoodtrucks">Livraison en 30 minutes chez vous</p>
+	</div>-->
+
+	<!--Solution 3-->
+	<!--<div class="row divFoodtrucks rowHome" style="margin-top: 5%" ui-sref="connexion">
+		<img src="img/foodtrucks.gif" class="imgFoodtrucks">
+		<p class="textHome textFoodtrucks">Trouver nos Foodtrucks</p>
+		<p class="textHome legendFoodtrucks">Tout nos triporteurs sur Paris</p>
+	</div-->
+  <!--<div class="row">
+    <div class="col">
+      <button ui-sref="store" class="button button-calm store_link">Boutique</button>
+    </div>
+  </div>
+
+	<div class="row youpi">
+		<div class="col col-50 text-center">
+			<button class="button button-balanced" ui-sref="connexion">Connexion</button>
+		</div>
+		<div class="col col-50 text-center">
+			<button class="button button-balanced" ui-sref="inscription">Inscription</button>
+		</div>
+	</div>-->
 </ion-view>
