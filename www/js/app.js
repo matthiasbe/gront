@@ -32,7 +32,8 @@ grontApp.config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state('main', {
     url: '/main',
-    templateUrl: 'templates/main.html'
+    templateUrl: 'templates/main.html',
+    controller:'MainCtrl'
   });
 
   $stateProvider.state('connexion', {
@@ -57,6 +58,21 @@ grontApp.config(function ($stateProvider, $urlRouterProvider) {
     url: '/cart',
     templateUrl: 'templates/cart.html'
   });
+
+  $stateProvider.state('concept', {
+    url: '/concept',
+    templateUrl: 'templates/concept.html'
+  })
+
+  $stateProvider.state('traiteur', {
+    url: '/traiteur',
+    templateUrl: 'templates/traiteur.html'
+  })
+
+  $stateProvider.state('contact', {
+    url: '/contact',
+    templateUrl: 'templates/contact.html'
+  })
 
   $urlRouterProvider.otherwise('/home');
 });
