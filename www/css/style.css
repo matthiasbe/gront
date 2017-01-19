@@ -252,3 +252,13 @@
   border: 0px white solid;
   padding: 0px;
 }
+
+.mynavbar
+{
+  height: 200px;
+  background-image: url("../img/logo.gif") !important;
+  background-size: 200px auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
