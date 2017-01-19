@@ -47,6 +47,13 @@
   margin: auto;
 }
 
+.logoNavBar
+{
+  padding-top: 1%;
+  height: 95%;
+  margin: auto;
+}
+
 .Home
 {
   background-image: url(../img/background.jpg);
@@ -255,10 +262,65 @@
 
 .mynavbar
 {
-  height: 200px;
+  height: 70px;
   background-image: url("../img/logo.gif") !important;
-  background-size: 200px auto;
+  background-size: 90px auto;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
+  background-color: red;
+}
+
+.bar-header {
+   height: 70px !important; /*just an example*/
+   background-image: url("https://gront.fr/wp-content/uploads/2016/03/accueil-bg.jpg") !important;
+   background-size: 100% auto !important;
+   border: none !important;
+}
+
+.has-header {
+   top: 70px !important;
+}
+
+.bar-header .title {
+   line-height: 70px !important;
+}
+
+.bar .title {
+  height: 70px !important;
+}
+
+.back-button {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.emptyHome {
+  background-color: #e5e1de;
+}
+
+.fontBlue1 {
+  color: #0a4e60;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  font-family: "Source Sans Pro", Georgia, serif;
+  text-align: justify;
+  font-size: 17px;
+}
+
+.blueTitle {
+  color: #0a4e60;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  font-family: "Source Sans Pro", Georgia, serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.blueBorder {
+  border-style: solid;
+  border-width: 7px;
+  border-color: #0a4e60;
 }
