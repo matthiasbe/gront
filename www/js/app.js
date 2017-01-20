@@ -74,5 +74,9 @@ grontApp.config(function ($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/contact.html'
   })
 
+  $stateProvider.state('orderConfirmed', {
+    url: '/orderConfirmed',
+    templateUrl: 'templates/orderConfirmed.html'
+  })
   $urlRouterProvider.otherwise('/home');
 });
