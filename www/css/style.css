@@ -315,8 +315,15 @@
   font-family: "Source Sans Pro", Georgia, serif;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 30px;
+}
+
+.blueH2 {
+  color: #0a4e60;
+  font-weight: bold;
+  line-height: 1.135;
+  font-size: 22px;
 }
 
 .blueBorder {
