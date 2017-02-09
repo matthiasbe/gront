@@ -304,11 +304,10 @@
   letter-spacing: 1px;
   word-spacing: 1px;
   font-family: "Source Sans Pro", Georgia, serif;
-  text-align: justify;
-  font-size: 17px;
+  font-size: 16px;
 }
 
-.blueTitle {
+/*.blueTitle {
   color: #0a4e60;
   letter-spacing: 1px;
   word-spacing: 1px;
@@ -317,6 +316,15 @@
   font-weight: bold;
   font-size: 20px;
   line-height: 30px;
+}*/
+
+.blueTitle {
+  color: #0a4e60;
+  font-weight: bold;
+  line-height: 1.135;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .blueH2 {
@@ -324,6 +332,7 @@
   font-weight: bold;
   line-height: 1.135;
   font-size: 22px;
+  letter-spacing: 1px;
 }
 
 .blueBorder {

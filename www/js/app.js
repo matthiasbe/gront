@@ -78,5 +78,20 @@ grontApp.config(function ($stateProvider, $urlRouterProvider) {
     url: '/orderConfirmed',
     templateUrl: 'templates/orderConfirmed.html'
   })
+
+  $stateProvider.state('genericCarte', {
+    url: '/genericCarte',
+    templateUrl: 'templates/genericCarte.html'
+  })
+
+  $stateProvider.state('carte', {
+    url: '/carte',
+    templateUrl: 'templates/carte.html'
+  })
+
+  $stateProvider.state('map', {
+    url: '/map',
+    templateUrl: 'templates/map.html'
+  })
   $urlRouterProvider.otherwise('/home');
 });
