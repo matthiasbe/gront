@@ -1,6 +1,6 @@
 grontApp.factory('bdd', function($http, $q) {
   var wp = new WPAPI({
-    endpoint: 'http://localhost//gront/?rest_route=',
+    endpoint: 'http://localhost/gront/?rest_route=',
       //endpoint: 'http://gront.fr/wp-json/',
       username : 'appmobile',
       password : 'Jc29JQi^5jtq@@yT($0)4e#('
@@ -20,6 +20,25 @@ grontApp.factory('bdd', function($http, $q) {
 
       return {
 
+        /**
+         * Check if this email is available. This is used for registration.
+         */
+        emailAvailable: function(email) {
+          var available = $q.defer();
+          wc.get('customers/email/'+email, function(err, data, results) {
+            if(err != null) {
+              available.reject();
+            }
+            else if(data.statusCode == 200) {
+              available.resolve(false);
+            }
+            else if(data.statusCode == 404) {
+              available.resolve(true);
+            }
+          });
+          return available.promise;
+        },
+
         createCustomer: function(email) {
           var data = {"customer": {"email": email}};
           var res = $q.defer();
@@ -35,48 +54,48 @@ grontApp.factory('bdd', function($http, $q) {
           return res.promise;
         },
 
-          getProducts: function() {
-            var res = $q.defer();
-            wc.get('products', function(err, data, result) {
+        getProducts: function() {
+          var res = $q.defer();
+          wc.get('products', function(err, data, result) {
+            if(err == null) {
+              res.resolve(JSON.parse(result).products);
+            }
+            else {
+              res.reject("Aucune connexion");
+            }
+          });
+          return res.promise;
+        },
+
+        checkPassword: function(email, password) {
+          var res = $q.defer();
+          wp.check()
+            .id(encodeURI(email))
+            .password(encodeURIComponent(password))
+            .get(function(err, data) {
               if(err == null) {
-                res.resolve(JSON.parse(result).products);
+                res.resolve(data);
               }
               else {
-                res.reject("Aucune connexion");
+                res.reject('Aucune connexion.');
               }
             });
-            return res.promise;
-          },
+          return res.promise;
+        },
 
-          checkPassword: function(email, password) {
-            var res = $q.defer();
-            wp.check()
-              .id(encodeURI(email))
-              .password(encodeURIComponent(password))
-              .get(function(err, data) {
-                if(err == null) {
-                  res.resolve(data);
-                }
-                else {
-                  res.reject('Aucune connexion.');
-                }
-              });
-            return res.promise;
-          },
-
-          getTriporteurs: function() {
-            var res = $q.defer();
-            wp.triporteurs()
-              .get(function(err, data) {
-                if(err == null) {
-                  res.resolve(data);
-                }
-                else {
-                  res.reject('Aucune connexion.');
-                }
-              });
-            return res.promise;
-          }
+        getTriporteurs: function() {
+          var res = $q.defer();
+          wp.triporteurs()
+            .get(function(err, data) {
+              if(err == null) {
+                res.resolve(data);
+              }
+              else {
+                res.reject('Aucune connexion.');
+              }
+            });
+          return res.promise;
+        }
       }
 });
 
