@@ -1,5 +1,44 @@
 <ion-view view-title="Triporteurs">
   <ion-content>
+
+
+  <div id="map_div">
+    <img id="map_img" src="img/carte_paris.png" />
+
+      <!-- On boucle sur tout les triporteurs -->
+      <div ng-repeat="del in cyclos">
+      <div class="popup"
+        id="popup{{del.id}}'_'{{del.delivery_day}}"
+        style="
+          margin-left : {{del.coordx}}px;
+          top : {{del.coordy}}">
+        <table>
+          <tr>
+            <td colspan="2">
+              <span class="popup_header">POINT DE LIVRAISON PUBLIC</span><br/>
+              {{del.address}}<br/>
+              à récupérer {{format_time(del)}}
+            </td>
+          </tr>
+          <tr>
+            <td class="gmap"><a target="_blank" href="https://www.google.fr/maps/search/<?php echo $delivery->address ?>+paris">VOIR SUR GOOGLE MAP</a></td>
+            <?php if(!$foodtrucks_param) { ?><td class="choose_button" onclick="choose()">CHOISIR CE POINT DE LIVRAISON</td><?php } ?>
+          </tr>
+        </table>
+      </div>
+      <img {{specialEvent(del)}}
+          src="img/marker_unselected.png"
+          style="margin-left : <?php echo $delivery->coordx - 15?>px;
+            <?php echo ($delivery->day_delivery == $days[0][1] - 1)? '': 'display: none;'; ?>
+            top : <?php echo $delivery->coordy - 40?>px;"
+            onclick="showPopup('')"
+          id="img{{del.id}}_{{del.delivery_id}}"
+          class="marker day{{del.day_delivery}}"
+      />
+      </div>
+    </div>
+  </div>
+
     <div class="card">
       <div class="item item-divider">
         Panier :

@@ -2,18 +2,18 @@
   width: 100%;
 }
 
-.map_div {
+#map_div {
   margin: 30px auto;
 }
 
 @media only screen and (max-width: 487px) {
-  .map_div {
+  #map_div {
     width: 100%;
   }
 }
 
 @media only screen and (min-width: 488px) {
-  .map_div {
+  #map_div {
     width: 480px;
   }
 }
