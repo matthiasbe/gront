@@ -8,7 +8,7 @@
       <!-- On boucle sur tout les triporteurs -->
       <div ng-repeat="del in cyclos">
       <div class="popup"
-        id="popup{{del.id}}'_'{{del.delivery_day}}"
+        id="popup{{del.id}}_{{del.day_delivery}}"
         style="
           margin-left : {{del.coordx}}px;
           top : {{del.coordy}}">
@@ -21,18 +21,17 @@
             </td>
           </tr>
           <tr>
-            <td class="gmap"><a target="_blank" href="https://www.google.fr/maps/search/<?php echo $delivery->address ?>+paris">VOIR SUR GOOGLE MAP</a></td>
-            <?php if(!$foodtrucks_param) { ?><td class="choose_button" onclick="choose()">CHOISIR CE POINT DE LIVRAISON</td><?php } ?>
+            <td class="gmap"><a target="_blank" href="https://www.google.fr/maps/search/{{del.address}}+paris">VOIR SUR GOOGLE MAP</a></td>
+            <td class="choose_button" ng-click="choose()">CHOISIR CE POINT DE LIVRAISON</td>
           </tr>
         </table>
       </div>
       <img {{specialEvent(del)}}
           src="img/marker_unselected.png"
-          style="margin-left : <?php echo $delivery->coordx - 15?>px;
-            <?php echo ($delivery->day_delivery == $days[0][1] - 1)? '': 'display: none;'; ?>
-            top : <?php echo $delivery->coordy - 40?>px;"
-            onclick="showPopup('')"
-          id="img{{del.id}}_{{del.delivery_id}}"
+          style="margin-left : {{del.coordx}}px;
+            top : {{del.coordy}}px;"
+            ng-click="showPopup(del.id + '_' + del.day_delivery)"
+          id="img{{del.id}}_{{del.day_delivery}}"
           class="marker day{{del.day_delivery}}"
       />
       </div>

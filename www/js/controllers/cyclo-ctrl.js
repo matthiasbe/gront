@@ -55,9 +55,24 @@ grontApp.controller('CycloCtrl', function ($scope, cart, data) {
     }
   }
 
+  // Fonction d'affichage des popup
+
+  $scope.showPopup = function(id) {
+    hideAllPopups();
+    document.getElementById('popup'+id).style.display = 'block';
+    document.getElementById('img'+id).src = document.getElementById('img'+id).src.replace(/_unselected/g, '_selected');
+  }
+
+  var hideAllPopups = function() {
+    var popups = document.getElementsByClassName('popup');
+    var imgs = document.getElementsByClassName('marker');
+    for(var i = 0; i<popups.length; i++) {
+      popups.item(i).style.display = 'none';
+      imgs.item(i).src = imgs.item(i).src.replace(/_selected/g, '_unselected');
+    }
+  }
 
 
-  console.log(ressources);
 
 
 });

@@ -1,3 +1,46 @@
+/* Affichage des popups */
+
+.popup {
+  position: absolute;
+  display: none;
+  width: 400px;
+  z-index: 15;
+  /* /!\ il y a des attributs supplémentaires en inline dans la balise html */
+}
+
+.marker {
+  position: absolute;
+  width: 30px;
+  cursor: pointer;
+  /* /!\ il y a des attributs supplémentaires en inline dans la balise html */
+}
+
+.popup_header {
+  font-size: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.popup td {
+  text-align: center;
+  border: 6px solid #0a4e60;
+  padding: 0;
+}
+
+.choose_button {
+  cursor: pointer;
+}
+
+.gmap, .choose_button {
+  font-size: 12px;
+}
+
+.popup td {background-color: #F5F5F5;}
+
+/* Taille de la carte et responsivité */
+
 #map_img {
   width: 100%;
 }

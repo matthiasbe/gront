@@ -57,7 +57,6 @@ grontApp.factory('data', function(bdd) {
 
     // Then get products
     bdd.getProducts().then(function(res) {
-      console.log(res);
       storage.setItem('products', JSON.stringify(res));
       if(empty) {
         changeToSoft = true;
