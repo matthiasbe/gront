@@ -3,7 +3,7 @@
  * que l'utilisateur puisse en sélectionner un.
  */
 
-grontApp.controller('CycloCtrl', function ($scope, cart, data) {
+grontApp.controller('CycloCtrl', function ($scope, $state, cart, data) {
 
   var ressources;
 
@@ -35,6 +35,7 @@ grontApp.controller('CycloCtrl', function ($scope, cart, data) {
     $scope.specialEvent = specialEvent;
     $scope.showPopup = showPopup;
     $scope.changeDay = changeDay;
+    $scope.choose = choose;
   }
 
   /* 
@@ -148,7 +149,7 @@ grontApp.controller('CycloCtrl', function ($scope, cart, data) {
   var choose = function(date) {
     // TODO : Stocker le triporteur dans la commande
 
-    $scope.state.go("genericCart");
+    $state.go("genericCarte");
   }
 
   // Exéction de la fonction principale
