@@ -8,7 +8,7 @@ grontApp.controller('CycloCtrl', function ($scope, cart, data) {
   var ressources;
 
   /**
-   * Fonction principale lancée dès que la page est chargée
+   * Fonction principale
    */
   var main = function() {
 
@@ -117,23 +117,38 @@ grontApp.controller('CycloCtrl', function ($scope, cart, data) {
     passDeliveriesToScope(ressources.deliveries, dayNum);
   };
 
-  var nextDay = function(date) {
-    date.setTime(date.getTime() + 24*60*60*1000);
-    return date;
-  }
 
+  /**
+   * Envoi au scope la liste des prochain jour sours la forme d'un tableau d'objets
+   * de la forme
+   * {
+   *   1:{name: nom_jour, number: numéro_jour},
+   *   ...
+   * }
+   *
+   * Le premier jour est aujourd'hui si il est moins que 10h du mat, sinon c'est demain
+   */
   var passDaysToScope = function() {
     var currentDay = new Date();
     if(currentDay.getHours() > 9) {
-      currentDay  = nextDay(currentDay);
+      currentDay.setTime(currentDay.getTime() + 24*60*60*1000);
     }
 
     var days = Array();
     for(var i = 0; i < 10; i++) {
       days[i] = {name: currentDay.toDateString(), number: currentDay.getDay()};
-      currentDay = nextDay(currentDay);
+      currentDay.setTime(currentDay.getTime() + 24*60*60*1000);
     }
     $scope.days = days;
+  }
+
+  /**
+   * Choix d'un des point de livraison pour la commande.
+   */
+  var choose = function(date) {
+    // TODO : Stocker le triporteur dans la commande
+
+    $scope.state.go("genericCart");
   }
 
   // Exéction de la fonction principale
