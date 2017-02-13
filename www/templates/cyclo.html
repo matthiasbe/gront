@@ -10,8 +10,8 @@
       <div class="popup"
         id="popup{{del.id}}_{{del.day_delivery}}"
         style="
-          margin-left : {{del.coordx}}px;
-          top : {{del.coordy}}">
+          margin-left : {{del.coordx-200}}px;
+          top : {{del.coordy}}px">
         <table>
           <tr>
             <td colspan="2">
@@ -28,8 +28,8 @@
       </div>
       <img {{specialEvent(del)}}
           src="img/marker_unselected.png"
-          style="margin-left : {{del.coordx}}px;
-            top : {{del.coordy}}px;"
+          style="margin-left : {{del.coordx-15}}px;
+            top : {{del.coordy-40}}px;"
             ng-click="showPopup(del.id + '_' + del.day_delivery)"
           id="img{{del.id}}_{{del.day_delivery}}"
           class="marker day{{del.day_delivery}}"

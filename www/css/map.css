@@ -39,6 +39,18 @@ table {
 
 .popup td {background-color: #F5F5F5;}
 
+.popup a {
+  border-bottom: none !important;
+}
+
+#map_div a, #map_div p, #map_div td {
+  text-align: center;
+  color: #0a4e60 !important;
+  font-family: Cabin;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+}
+
 /* Taille de la carte et responsivité */
 
 #map_img {
@@ -49,14 +61,14 @@ table {
   margin: 30px auto;
 }
 
-@media only screen and (max-width: 487px) {
+@media only screen and (max-width: 610px) {
   #map_div {
     width: 100%;
   }
 }
 
-@media only screen and (min-width: 488px) {
+@media only screen and (min-width: 611px) {
   #map_div {
-    width: 480px;
+    width: 600px;
   }
 }
