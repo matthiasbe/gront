@@ -19,8 +19,6 @@ grontApp.controller('CycloCtrl', function ($scope, cart, data) {
     // Mise à jour du stockage local
     data.sync();
 
-    $scope.cart = cart.getProducts();
-
     // Clear les popup lors d'un clic sur la carte
     document.getElementById('map_img').addEventListener('click', hideAllPopups);
 
