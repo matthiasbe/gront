@@ -37,6 +37,12 @@
       </div>
     </div>
   </div>
+  <ul class="list">
+    <div ng-repeat="day in days">
+      <li ng-click="changeDay(day.number)" class="item">{{day.name}}</li>
+    </div>
+  </ul>
+
 
   </ion-content>
 </ion-view>
