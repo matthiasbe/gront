@@ -1,19 +1,74 @@
+/* Affichage des popups */
+
+.popup {
+  position: absolute;
+  display: none;
+  width: 400px;
+  z-index: 15;
+  /* /!\ il y a des attributs supplémentaires en inline dans la balise html */
+}
+
+.marker {
+  position: absolute;
+  width: 30px;
+  cursor: pointer;
+  /* /!\ il y a des attributs supplémentaires en inline dans la balise html */
+}
+
+.popup_header {
+  font-size: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.popup td {
+  text-align: center;
+  border: 6px solid #0a4e60;
+  padding: 0;
+}
+
+.choose_button {
+  cursor: pointer;
+}
+
+.gmap, .choose_button {
+  font-size: 12px;
+}
+
+.popup td {background-color: #F5F5F5;}
+
+.popup a {
+  border-bottom: none !important;
+}
+
+#map_div a, #map_div p, #map_div td {
+  text-align: center;
+  color: #0a4e60 !important;
+  font-family: Cabin;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+}
+
+/* Taille de la carte et responsivité */
+
 #map_img {
   width: 100%;
 }
 
-.map_div {
+#map_div {
   margin: 30px auto;
 }
 
-@media only screen and (max-width: 487px) {
-  .map_div {
+@media only screen and (max-width: 610px) {
+  #map_div {
     width: 100%;
   }
 }
 
-@media only screen and (min-width: 488px) {
-  .map_div {
-    width: 480px;
+@media only screen and (min-width: 611px) {
+  #map_div {
+    width: 600px;
   }
 }

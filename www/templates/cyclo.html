@@ -1,30 +1,42 @@
 <ion-view view-title="Triporteurs">
   <ion-content>
-    <div class="card">
-      <div class="item item-divider">
-        Panier :
+
+
+  <div id="map_div">
+    <img id="map_img" src="img/carte_paris.png" />
+
+      <!-- On boucle sur tout les triporteurs -->
+      <div ng-repeat="del in cyclos">
+      <div class="popup"
+        id="popup{{del.id}}_{{del.day_delivery}}"
+        style="
+          margin-left : {{del.coordx-200}}px;
+          top : {{del.coordy}}px">
+        <table>
+          <tr>
+            <td colspan="2">
+              <span class="popup_header">POINT DE LIVRAISON PUBLIC</span><br/>
+              {{del.address}}<br/>
+              à récupérer {{format_time(del)}}
+            </td>
+          </tr>
+          <tr>
+            <td class="gmap"><a target="_blank" href="https://www.google.fr/maps/search/{{del.address}}+paris">VOIR SUR GOOGLE MAP</a></td>
+            <td class="choose_button" ng-click="choose()">CHOISIR CE POINT DE LIVRAISON</td>
+          </tr>
+        </table>
       </div>
-      <div class="item item-text-wrap">
-        <ion-list>
-          <ion-item ng-repeat="product in cart">
-            <p>
-              {{product.title}}
-            </p>
-          </ion-item>
-        </ion-list>
+      <img {{specialEvent(del)}}
+          src="img/marker_unselected.png"
+          style="margin-left : {{del.coordx-15}}px;
+            top : {{del.coordy-40}}px;"
+            ng-click="showPopup(del.id + '_' + del.day_delivery)"
+          id="img{{del.id}}_{{del.day_delivery}}"
+          class="marker day{{del.day_delivery}}"
+      />
       </div>
     </div>
-    <div class="card">
-      <div class="item item-divider">
-        Choisissez un triporteur :
-      </div>
-      <div class="item item-text-wrap">
-        <ion-list>
-          <ion-item ng-repeat="cyclo in cyclos">
-            <p>{{cyclo.address}}</p>
-          </ion-item>
-        </ion-list>
-      </div>
-    </div>
+  </div>
+
   </ion-content>
 </ion-view>

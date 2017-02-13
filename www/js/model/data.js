@@ -56,7 +56,12 @@ grontApp.factory('data', function(bdd) {
     });
 
     // Then get products
-    //storage.setItem('products', JSON.stringify(bdd.getProducts()));
+    bdd.getProducts().then(function(res) {
+      storage.setItem('products', JSON.stringify(res));
+      if(empty) {
+        changeToSoft = true;
+      }
+    });
 
     if(changeToSoft) {
       // Download was a success, changing to a softer pace of download
