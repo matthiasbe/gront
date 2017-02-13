@@ -1,7 +1,8 @@
-grontApp.controller('MainCtrl', function ($scope, $ionicActionSheet, $state) {
+grontApp.controller('MainCtrl', function ($scope, $ionicActionSheet, $state, data) {
 
    $scope.triggerActionSheet = function() {
-
+      data.sync();
+      console.log(data.getProducts());
       // Show the action sheet
       var showActionSheet = $ionicActionSheet.show({
          buttons: [
