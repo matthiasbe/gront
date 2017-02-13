@@ -22,6 +22,7 @@ grontApp.controller('CycloCtrl', function ($scope, cart, data) {
     // Clear les popup lors d'un clic sur la carte
     document.getElementById('map_img').addEventListener('click', hideAllPopups);
 
+    passDaysToScope();
     passFunctionsToScope();
   }
 
@@ -33,6 +34,7 @@ grontApp.controller('CycloCtrl', function ($scope, cart, data) {
     $scope.format_time = format_time;
     $scope.specialEvent = specialEvent;
     $scope.showPopup = showPopup;
+    $scope.changeDay = changeDay;
   }
 
   /* 
@@ -106,37 +108,33 @@ grontApp.controller('CycloCtrl', function ($scope, cart, data) {
     document.getElementById('img'+id).src = document.getElementById('img'+id).src.replace(/_unselected/g, '_selected');
   }
 
-  /**
-   * Cache tous les markers
-   */
-  var hideAllMarkers = function() {
-      console.log('ok');
-    var markers = document.getElementsByClassName('marker');
-    for(var i = 0; i<markers.length; i++) {
-      markers.item(i).style.display = 'none';
-    }
-  };
-
 
   /**
    * Fonction appelée lors de la sélection d'un autre jour sur le calendrier
    * @param dayNum Le numéro du jour dans la semaine (lundi = 0)
    */
   var changeDay = function (dayNum) {
-    hideAllPopups();
-    hideAllMarkers();
-
-    var markers = document.getElementsByClassName('day' + dayNum);
-
-    for(var i = 0; i<markers.length; i++) {
-
-      if(!markers.item(i).hasAttribute("data-week") ||
-          weekNumber == markers.item(i).getAttribute('data-week')) {
-
-            markers.item(i).style.display = 'block';
-          }
-    }
+    passDeliveriesToScope(ressources.deliveries, dayNum);
   };
+
+  var nextDay = function(date) {
+    date.setTime(date.getTime() + 24*60*60*1000);
+    return date;
+  }
+
+  var passDaysToScope = function() {
+    var currentDay = new Date();
+    if(currentDay.getHours() > 9) {
+      currentDay  = nextDay(currentDay);
+    }
+
+    var days = Array();
+    for(var i = 0; i < 10; i++) {
+      days[i] = {name: currentDay.toDateString(), number: currentDay.getDay()};
+      currentDay = nextDay(currentDay);
+    }
+    $scope.days = days;
+  }
 
   // Exéction de la fonction principale
   main();
