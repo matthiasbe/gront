@@ -1,0 +1,10 @@
+{
+  "name": "gront",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/rest-api",
+      "proxyUrl": "https://gront.fr/"
+    }
+  ]
+}
