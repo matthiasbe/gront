@@ -1,11 +1,11 @@
 <ion-view view-title="Home" hide-nav-bar="true" class="Home">
-
+<ion-content>
 	<!--Logo Gront-->
 	<div class="row">
 		<img src="img/logo.gif" class="logoGrontHome">
 	</div>
 
-	<!--Phrase 1-->
+<!--
 	<div class="rowHome" style="margin-top: 5%">
 		<p class="textHome">Connectez vous:</p>
 	</div>
@@ -17,7 +17,6 @@
 		<p class="textInRect3" ui-sref="main">Ok</p>
 	</div>
 
-	<!--Phrase 1-->
 	<div class="rowHome" style="margin-top: 5%">
 		<p class="textHome">Pas encore de compte ?</p>
 	</div>
@@ -25,7 +24,32 @@
 	<div class="rowHome" ui-sref="inscription">
 		<img src="img/perso/1-rect.gif" class="imgConnect">
 		<p class="textInRect4">Créer son compte</p>
-	</div>
+	</div> -->
+
+    <div class="list rowHome" style="padding-top: 5%;">
+    	<p class="textHome" style="padding-bottom: 3%">Connectez-vous :</p>
+      <label class="item item-input">
+        <span class="input-label">Username</span>
+        <input type="tel">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Password</span>
+        <input type="month">
+      </label>
+      <button ng-click="" ui-sref="main"
+        class="button button-block button-light">
+        Se connecter
+      </button>
+    </div>
+
+    <div class="list rowHome" style="padding-top: 5%;">
+    <p class="textHome" >Pas encore de compte ?</p>
+    	<button ng-click="" ui-sref="inscription"
+        class="button button-block button-light">
+        Créer son compte
+      </button>
+    </div>
+  </ion-content>
 
 	<!--Solution 1-->
 	<!--<div class="row rowHome" style="margin-top: 5%">
