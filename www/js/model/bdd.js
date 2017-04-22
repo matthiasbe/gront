@@ -1,20 +1,23 @@
 grontApp.factory('bdd', function($http, $q) {
-  var wp = new WPAPI({
-    //endpoint: 'http://localhost/gront/?rest_route=',
-      endpoint: 'http://gront.fr/wp-json/',
-      username : 'appmobile',
-      password : 'Jc29JQi^5jtq@@yT($0)4e#('
-        });
+      var wp = new WPAPI(
+        {
+          // endpoint: 'http://localhost/gront/?rest_route=',
+          endpoint: 'http://gront.fr/wp-json/',
+          username : 'appmobile',
+          password : 'Jc29JQi^5jtq@@yT($0)4e#('
+        }
+      );
       wp.check = wp.registerRoute('custom', '/check/(?P<id>)/(?P<password>)');
       wp.triporteurs = wp.registerRoute('custom', '/triporteurs');
 
 
       // Using a factory to fetch requests from WordPress site using WP and WC REST APIs
       var wc = new WooCommerceAPI({
-        consumerKey: 'ck_aabd0e6985206e1ea8945e6d1f203bd6f88bd52c',
+          consumerKey: 'ck_aabd0e6985206e1ea8945e6d1f203bd6f88bd52c',
           consumerSecret: 'cs_c69ef1e13e5165daf06a717d5735665c230aa2fc',
           url: 'http://localhost:8100/rest-api',
-          proxy: 'http://gront.fr/'
+          proxy: 'http://gront.fr',
+          wpAPI: true
       });
 
       return {
@@ -55,7 +58,8 @@ grontApp.factory('bdd', function($http, $q) {
 
         getProducts: function() {
           var res = $q.defer();
-          wc.get('products', function(err, data, result) {
+          wc.get('products?filter[limit]=25', function(err, data, result) {
+            console.log(JSON.parse(result));
             if(err == null) {
               res.resolve(JSON.parse(result).products);
             }
@@ -97,5 +101,3 @@ grontApp.factory('bdd', function($http, $q) {
         }
       }
 });
-
-
