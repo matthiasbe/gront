@@ -43,7 +43,7 @@ grontApp.controller('CycloCtrl', function ($scope, $state, cart, data) {
    * jour l'affichage des points de livraison.
    */
   var update = function() {
-    ressources = data.getTriporteurs();
+    ressources = window.localStorage.getItem('triporteurs');
     passDeliveriesToScope(ressources.deliveries, new Date().getDay());
   }
 

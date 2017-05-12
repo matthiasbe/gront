@@ -10,9 +10,7 @@ grontApp.controller('GenericCarteCtrl', function ($scope, $state, cart, data) {
    */
   var main = function() {
 
-    // Ajout de la fonction update à la liste des fonctions
-    // appelée lors d'une mise à jour de la liste des triporteurs
-    data.addUpdateCallback(update);
+    update();
 
     // Mise à jour du stockage local
     data.sync();
@@ -23,7 +21,7 @@ grontApp.controller('GenericCarteCtrl', function ($scope, $state, cart, data) {
    * jour l'affichage des points de livraison.
    */
   var update = function() {
-    $scope.products = data.getProducts();
+    $scope.products = JSON.parse(window.localStorage.getItem('products'));
     categories = [];
     for (product of $scope.products) {
       if (categories.indexOf(product.categories[0].toString()) == -1) {
