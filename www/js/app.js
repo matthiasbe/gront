@@ -99,5 +99,10 @@ grontApp.config(function ($stateProvider, $urlRouterProvider) {
     url: '/map',
     templateUrl: 'templates/map.html'
   })
+
+  $stateProvider.state('test', {
+    url: '/test',
+    templateUrl: 'templates/test.html'
+  })
   $urlRouterProvider.otherwise('/home');
 });
