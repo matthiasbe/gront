@@ -61,6 +61,7 @@ grontApp.factory('data', function(bdd) {
       if(empty) {
         changeToSoft = true;
       }
+      triggerProductsCallbacks();
     });
 
     if(changeToSoft) {
@@ -77,6 +78,15 @@ grontApp.factory('data', function(bdd) {
   var triggerTriporteursCallbacks = function() {
     for(var i = 0; i < triporteursCallbacks.length; i++) {
       triporteursCallbacks[i]();
+    }
+  }
+
+  /**
+   * Execute all registered callback function for triporteurs
+   */
+  var triggerProductsCallbacks = function() {
+    for(var i = 0; i < productsCallbacks.length; i++) {
+      productsCallbacks[i]();
     }
   }
 

@@ -12,13 +12,17 @@ grontApp.controller('GenericCarteCtrl', function ($scope, $state, cart, data) {
 
     update();
 
+    // Ajout de la fonction update à la liste des fonctions
+    // appelée lors d'une mise à jour de la liste des produits
+    data.addUpdateCallback(update, false);
+
     // Mise à jour du stockage local
     data.sync();
   }
 
   /*
-   * Récupère la liste des point de livraison depuis le stockage local et met a
-   * jour l'affichage des points de livraison.
+   * Récupère la liste des produits depuis le stockage local et met a
+   * jour l'affichage des produits
    */
   var update = function() {
     $scope.products = JSON.parse(window.localStorage.getItem('products'));
@@ -31,7 +35,7 @@ grontApp.controller('GenericCarteCtrl', function ($scope, $state, cart, data) {
     $scope.categories = categories;
   }
 
-  // Exéction de la fonction principale
+  // Exécution de la fonction principale
   main();
 
 });
