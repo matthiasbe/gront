@@ -4,102 +4,35 @@
 		<img src="img/logo.gif" class="logoNavBar">
 	</ion-nav-title>
 
-	<ion-scroll>
-	<!--Title-->
-	<div style="margin-top: 70px; padding-top: 5%;">
-		<!--Insert Image-->
-		<p class="blueBorder blueTitle" style="text-align: center; margin-left:25%;margin-right: 25%;padding: 2%;">Soupe</p>
+	<ion-content>
+
+	<!-- On boucle sur tout les catégories -->
+	<div ng-repeat="category in categories">
+		<!--Title-->
+		<div style="padding-top: 5%;">
+			<!--Insert Image-->
+			<p class="blueBorder blueTitle" style="text-align: center; margin-left:25%;margin-right: 25%;padding: 2%;">{{category}}</p>
+		</div>
+
+		<!-- On boucle sur tout les produits -->
+		<div ng-repeat="product in products">
+			<div class = "row" style="margin-top: 5%;" ng-if="$even && product.categories[0].toString() === category">
+				<div style="padding: 5%;" class="col" ng-repeat="prod in [products[$index], products[$index + 1]]">
+					<div style="background-color: white;" ng-if="prod">
+						<!-- Image -->
+						<img src="{{prod.featured_src}}" style="width:100%; height: auto;">
+						<!-- Name -->
+						<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">{{prod.title}}</div>
+
+						<hr style="height: 2px;background-color:rgb(81, 81, 80);border: 0; margin: 0;">
+						<!-- Prix -->
+						<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">{{prod.price}}€ TTC</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<div class = "row" style="margin-top: 5%;">
-		<div style="padding: 5%;" class="col">
-			<div style="background-color: white;">
-				<!-- Image -->
-				<img src="https://gront.fr/wp-content/uploads/2016/10/img_7555-e1476629315171.jpg" style="width:100%; height: auto;">
-				<!-- Name -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">Bitcher Mums</div>
-
-				<hr style="height: 2px;background-color:rgb(81, 81, 80);border: 0; margin: 0;">
-				<!-- Prix -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">3,80€ TTC</div>
-			</div>
-		</div>
-
-		<div style="padding: 5%;" class="col">
-			<div style="background-color: white;">
-				<!-- Image -->
-				<img src="https://gront.fr/wp-content/uploads/2016/10/img_7555-e1476629315171.jpg" style="width:100%; height: auto;">
-				<!-- Name -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">Bitcher Mums</div>
-
-				<hr style="height: 2px;background-color:rgb(81, 81, 80);border: 0; margin: 0;">
-				<!-- Prix -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">3,80€ TTC</div>
-			</div>
-		</div>
-	 </div>
-
-	<div class = "row" style="margin-top: 5%;">
-		<div style="padding: 5%;" class="col">
-			<div style="background-color: white;">
-				<!-- Image -->
-				<img src="https://gront.fr/wp-content/uploads/2016/10/img_7555-e1476629315171.jpg" style="width:100%; height: auto;">
-				<!-- Name -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">Bitcher Mums</div>
-
-				<hr style="height: 2px;background-color:rgb(81, 81, 80);border: 0; margin: 0;">
-				<!-- Prix -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">3,80€ TTC</div>
-			</div>
-		</div>
-
-		<div style="padding: 5%;" class="col">
-			<div style="background-color: white;">
-				<!-- Image -->
-				<img src="https://gront.fr/wp-content/uploads/2016/10/img_7555-e1476629315171.jpg" style="width:100%; height: auto;">
-				<!-- Name -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">Bitcher Mums</div>
-
-				<hr style="height: 2px;background-color:rgb(81, 81, 80);border: 0; margin: 0;">
-				<!-- Prix -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">3,80€ TTC</div>
-			</div>
-		</div>
-	 </div>
-
-	<div class = "row" style="margin-top: 5%;">
-		<div style="padding: 5%;" class="col">
-			<div style="background-color: white;">
-				<!-- Image -->
-				<img src="https://gront.fr/wp-content/uploads/2016/10/img_7555-e1476629315171.jpg" style="width:100%; height: auto;">
-				<!-- Name -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">Bitcher Mums</div>
-
-				<hr style="height: 2px;background-color:rgb(81, 81, 80);border: 0; margin: 0;">
-				<!-- Prix -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">3,80€ TTC</div>
-			</div>
-		</div>
-
-		<div style="padding: 5%;" class="col">
-			<div style="background-color: white;">
-				<!-- Image -->
-				<img src="https://gront.fr/wp-content/uploads/2016/10/img_7555-e1476629315171.jpg" style="width:100%; height: auto;">
-				<!-- Name -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">Bitcher Mums</div>
-
-				<hr style="height: 2px;background-color:rgb(81, 81, 80);border: 0; margin: 0;">
-				<!-- Prix -->
-				<div style="font-family: Source Sans Pro;font-synthesis: weight style;text-align: center;text-transform: uppercase;letter-spacing: 1.9px;line-height: 24.1833px;color: rgb(38, 37, 38">3,80€ TTC</div>
-			</div>
-		</div>
-	 </div>
-		
-	 </ion-scroll>
-
-
-
-	
+	</ion-content>
 
 </ion-view>
-

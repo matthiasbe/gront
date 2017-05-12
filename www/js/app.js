@@ -81,7 +81,8 @@ grontApp.config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state('genericCarte', {
     url: '/genericCarte',
-    templateUrl: 'templates/genericCarte.html'
+    templateUrl: 'templates/genericCarte.html',
+    controller: 'GenericCarteCtrl'
   })
 
   $stateProvider.state('paiement', {
