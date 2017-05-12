@@ -44,7 +44,7 @@ grontApp.controller('CycloCtrl', function ($scope, $state, cart, data) {
    */
   var update = function() {
     ressources = data.getTriporteurs();
-    passDeliveriesToScope(ressources.deliveries, 4);
+    passDeliveriesToScope(ressources.deliveries, new Date().getDay());
   }
 
   /**
@@ -112,7 +112,7 @@ grontApp.controller('CycloCtrl', function ($scope, $state, cart, data) {
 
   /**
    * Fonction appelée lors de la sélection d'un autre jour sur le calendrier
-   * @param dayNum Le numéro du jour dans la semaine (lundi = 0)
+   * @param dayNum Le numéro du jour dans la semaine (Dimanche = 0)
    */
   var changeDay = function (dayNum) {
     passDeliveriesToScope(ressources.deliveries, dayNum);
