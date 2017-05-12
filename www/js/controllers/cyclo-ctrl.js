@@ -12,7 +12,7 @@ grontApp.controller('CycloCtrl', function ($scope, $state, cart, data) {
    */
   var main = function() {
 
-    // Ajout de la fonction update à la liste des fonctions 
+    // Ajout de la fonction update à la liste des fonctions
     // appelée lors d'une mise à jour de la liste des triporteurs
     data.addUpdateCallback(update);
 
@@ -38,8 +38,8 @@ grontApp.controller('CycloCtrl', function ($scope, $state, cart, data) {
     $scope.choose = choose;
   }
 
-  /* 
-   * Récupère la liste des point de livraison depuis le stockage local et met a 
+  /*
+   * Récupère la liste des point de livraison depuis le stockage local et met a
    * jour l'affichage des points de livraison.
    */
   var update = function() {
@@ -98,7 +98,7 @@ grontApp.controller('CycloCtrl', function ($scope, $state, cart, data) {
     }
   }
 
-  
+
   /**
    * Affiche un popup a partir de l'id de la livraison et du jour de la livraison.
    * @param id String Sous la forme <id_delivery>_<jour_livraison> (ex "1_6")
@@ -137,10 +137,21 @@ grontApp.controller('CycloCtrl', function ($scope, $state, cart, data) {
 
     var days = Array();
     for(var i = 0; i < 10; i++) {
-      days[i] = {name: currentDay.toDateString(), number: currentDay.getDay()};
+      days[i] = {name: frenchDateFormat(currentDay), number: currentDay.getDay()};
       currentDay.setTime(currentDay.getTime() + 24*60*60*1000);
     }
     $scope.days = days;
+  }
+
+  /**
+   * Renvoie une string détaillant la date fournie en paramètre
+   * au format : nom_jour numero_jour nom_mois annee
+   * @date {Date}
+   */
+  var frenchDateFormat = function(date) {
+    jours = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
+    mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    return jours[date.getDay()] + ' ' + date.getDate() + ' ' + mois[date.getMonth()] + ' ' +  date.getFullYear();
   }
 
   /**
@@ -148,7 +159,7 @@ grontApp.controller('CycloCtrl', function ($scope, $state, cart, data) {
    */
   var choose = function(date) {
     // TODO : Stocker le triporteur dans la commande
-
+    console.log(date);
     $state.go("genericCarte");
   }
 
